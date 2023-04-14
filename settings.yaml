@@ -1,17 +1,62 @@
 mysql:
   host: 127.0.0.1
   port: 3306
+  config: ""
   db: gvb_db
   user: root
   password: 131421zka
   log_level: dev
 logger:
-  level: info
-  prefix: `[gvb]`
+  level: warning
+  prefix: '[gvb]'
   director: log
   show-line: true
   log-in-console: true
 system:
-  host: "0.0.0.0"
+  host: 0.0.0.0
   port: 8080
-  env: dev
+  env: release
+upload:
+  size: 2
+  path: uploads/file
+site_info:
+  created_at: "2023-04-13"
+  bei_an: 暂无
+  title: zke
+  qq_image: ""
+  version: ""
+  email: ""
+  wechat_image: ""
+  name: ""
+  job: ""
+  addr: ""
+  slogan: ""
+  slogan_en: ""
+  web: ""
+  bilibili_url: ""
+  gitee_url: ""
+  github_url: ""
+qq:
+  app_id: xx
+  key: xx
+  redirect: http://xx.xx.com/login?flag=qq
+qi_niu:
+  enable: false
+  access_key: UMM-xx-FdRIf-xx
+  secret_key: xx
+  bucket: zke
+  cdn: xx://xx.xx.com
+  zone: xx
+  size: 5
+email:
+  host: smtp.qq.com
+  port: "465"
+  user: xxx@qq.com
+  password: xxx
+  default_from_email: zke
+  use_ssl: xx
+  user_tls: xx
+jwt:
+  secret: xxx
+  expires: 48
+  issuer: xx
