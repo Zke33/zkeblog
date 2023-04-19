@@ -1,11 +1,16 @@
 mysql:
-  host: 127.0.0.1
+  host: 192.168.23.131
   port: 3306
   config: "charset=utf8mb4&parseTime=True&loc=Local"
   db: gvb_db
-  user: root
+  user: zke
   password: 131421zka
   log_level: release
+redis:
+  ip: 192.168.23.131
+  port: 6379
+  password: "131421zka"
+  pool_size: 100
 logger:
   level: warning
   prefix: '[gvb]'
