@@ -55,13 +55,13 @@ qi_niu:
   size: 5
   prefix: "gvb"
 email:
-  host: smtp.qq.com
-  port: "465"
-  user: xxx@qq.com
-  password: xxx
+  host: "smtp.qq.com"
+  port: 465
+  user: 1433861798@qq.com
+  password: "tvgttttfgjrdfiih"
   default_from_email: zke
-  use_ssl: xx
-  user_tls: xx
+  use_ssl: true
+  user_tls: false
 jwt:
   secret: xxx
   expires: 24
