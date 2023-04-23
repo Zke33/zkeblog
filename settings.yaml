@@ -66,3 +66,8 @@ jwt:
   secret: xxx
   expires: 24
   issuer: "1234"
+es:
+  host: "http://192.168.23.131"
+  port: 9200
+  user:
+  password:

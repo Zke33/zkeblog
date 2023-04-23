@@ -1,6 +1,11 @@
 package models
 
 import (
+	"context"
+	"encoding/json"
+	"github.com/olivere/elastic/v7"
+	"github.com/sirupsen/logrus"
+	"gvb_server/global"
 	"gvb_server/models/ctype"
 )
 
@@ -33,7 +38,7 @@ type ArticleModel struct {
 	Tags ctype.Array `json:"tags" structs:"tags"` // 文章标签
 }
 
-/*func (ArticleModel) Index() string {
+func (ArticleModel) Index() string {
 	return "article_index"
 }
 
@@ -209,4 +214,4 @@ func (a *ArticleModel) GetDataByID(id string) error {
 	}
 	err = json.Unmarshal(res.Source, a)
 	return err
-}*/
+}
