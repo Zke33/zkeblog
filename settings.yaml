@@ -1,5 +1,5 @@
 mysql:
-  host: 192.168.23.131
+  host: 121.43.183.35
   port: 3306
   config: "charset=utf8mb4&parseTime=True&loc=Local"
   db: gvb_db
@@ -7,7 +7,7 @@ mysql:
   password: 131421zka
   log_level: release
 redis:
-  ip: 192.168.23.131
+  ip: 121.43.183.35
   port: 6379
   password: "131421zka"
   pool_size: 100
@@ -67,7 +67,7 @@ jwt:
   expires: 24
   issuer: "1234"
 es:
-  host: "http://192.168.23.131"
+  host: "http://121.43.183.35"
   port: 9200
   user:
   password:
