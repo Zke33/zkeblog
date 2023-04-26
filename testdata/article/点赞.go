@@ -10,5 +10,5 @@ func main() {
 	core.InitConf()
 	global.Log = core.InitLogger()
 	global.Redis = core.ConnectRedis()
-	redis_ser.Digg("ddbht4cBnMkaexhcvNHZ")
+	redis_ser.NewDigg().Set("ddbht4cBnMkaexhcvNHZ")
 }

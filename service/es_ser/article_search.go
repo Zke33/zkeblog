@@ -62,8 +62,9 @@ func CommList(option Option) (list []models.ArticleModel, count int, err error) 
 	count = int(res.Hits.TotalHits.Value) //搜索到结果总条数
 	demoList := []models.ArticleModel{}
 
-	diggInfo := redis_ser.GetDiggInfo()
-	lookInfo := redis_ser.GetLookInfo()
+	diggInfo := redis_ser.NewDigg().GetInfo()
+	lookInfo := redis_ser.NewArticleLook().GetInfo()
+	commentInfo := redis_ser.NewCommentCount().GetInfo()
 	for _, hit := range res.Hits.Hits {
 		var model models.ArticleModel
 		err = json.Unmarshal(hit.Source, &model)
@@ -79,8 +80,10 @@ func CommList(option Option) (list []models.ArticleModel, count int, err error) 
 		model.ID = hit.Id
 		digg := diggInfo[hit.Id]
 		look := lookInfo[hit.Id]
+		comment := commentInfo[hit.Id]
 		model.DiggCount = model.DiggCount + digg
 		model.LookCount = model.LookCount + look
+		model.CommentCount = model.CommentCount + comment
 		demoList = append(demoList, model)
 	}
 	return demoList, count, err
@@ -99,7 +102,7 @@ func CommDetail(id string) (model models.ArticleModel, err error) {
 		return
 	}
 	model.ID = res.Id
-	model.LookCount = model.LookCount + redis_ser.GetLook(res.Id)
+	model.LookCount = model.LookCount + redis_ser.NewArticleLook().Get(res.Id)
 	return
 }
 
