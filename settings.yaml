@@ -12,7 +12,7 @@ redis:
   password: "131421zka"
   pool_size: 100
 logger:
-  level: warning
+  level: INFO
   prefix: '[gvb]'
   director: log
   show-line: true

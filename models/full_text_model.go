@@ -1,5 +1,11 @@
 package models
 
+import (
+	"context"
+	"github.com/sirupsen/logrus"
+	"gvb_server/global"
+)
+
 type FullTextModel struct {
 	ID    string `json:"id" structs:"id"`       // es的id
 	Key   string `json:"key"`                   // 文章关联的id
@@ -8,7 +14,7 @@ type FullTextModel struct {
 	Body  string `json:"body" structs:"body"`   // 文章内容
 }
 
-/*func (FullTextModel) Index() string {
+func (FullTextModel) Index() string {
 	return "full_text_index"
 }
 
@@ -94,4 +100,3 @@ func (a FullTextModel) RemoveIndex() error {
 	logrus.Info("索引删除成功")
 	return nil
 }
-*/

@@ -8,6 +8,7 @@ import (
 	"gvb_server/global"
 	"gvb_server/models"
 	"gvb_server/models/res"
+	"gvb_server/service/es_ser"
 	"gvb_server/utils/jwts"
 	"math/rand"
 	"strings"
@@ -107,13 +108,18 @@ func (ArticleApi) ArticleCreateView(c *gin.Context) {
 		BannerUrl:    bannerUrl,
 		Tags:         cr.Tags,
 	}
-
+	//应该区判断文章标题是否存在
+	if article.ISExistData() {
+		res.FailWithMessage("文章已存在", c)
+		return
+	}
 	err = article.Create()
 	if err != nil {
 		global.Log.Error(err)
 		res.FailWithMessage(err.Error(), c)
 		return
 	}
+	go es_ser.AsyncArticleByFullText(article.ID, article.Title, article.Content)
 	res.OkWithMessage("文章发布成功", c)
 
 }
