@@ -22,6 +22,8 @@ require (
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/andybalholm/cascadia v1.3.1 // indirect
 	github.com/bytedance/sonic v1.8.7 // indirect
+	github.com/cc14514/go-geoip2 v0.0.0-20190105051856-0a1854480a11 // indirect
+	github.com/cc14514/go-geoip2-db v0.0.0-20190106063142-7b6408a9812a // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/dgrijalva/jwt-go/v4 v4.0.0-preview1 // indirect
 	github.com/disintegration/letteravatar v0.0.0-20160912210445-1a457b860450 // indirect
@@ -58,6 +60,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.7 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/qiniu/go-sdk/v7 v7.14.0 // indirect
+	github.com/rakyll/statik v0.1.7 // indirect
 	github.com/russross/blackfriday v1.6.0 // indirect
 	github.com/russross/blackfriday/v2 v2.1.0 // indirect
 	github.com/sergi/go-diff v1.2.0 // indirect

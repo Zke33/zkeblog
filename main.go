@@ -21,6 +21,8 @@ func main() {
 	//连接数据库
 	global.DB = core.InitGorm()
 
+	core.InitAddrDB()
+	defer global.AddrDB.Close()
 	//命令行参数绑定
 	option := flag.Parse()
 	if flag.IsWebStop(option) {
