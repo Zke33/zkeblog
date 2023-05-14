@@ -1,6 +1,7 @@
 package images_api
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"gvb_server/global"
 	"gvb_server/models"
@@ -17,11 +18,12 @@ type ImageResponse struct {
 // @Tags 图片管理
 // @Summary 图片名称列表
 // @Description 图片名称列表
-// @Router /api/image_names [get]
+// @Router /api/images_names [get]
 // @Produce json
 // @Success 200 {object} res.Response{data=[]ImageResponse}
 func (ImagesApi) ImageNameListView(c *gin.Context) {
 	var imageList []ImageResponse
-	global.DB.Model(models.BannerModel{}).Select("id", "path", "name").Scan(imageList)
+	global.DB.Model(models.BannerModel{}).Select("id", "path", "name").Scan(&imageList)
+	fmt.Println(imageList)
 	res.OkWithData(imageList, c)
 }

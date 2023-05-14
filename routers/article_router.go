@@ -9,6 +9,7 @@ func (router RouterGroup) ArticleRouter() {
 	app := api.ApiGroupApp.ArticleApi
 	router.POST("articles", middleware.JwtAuth(), app.ArticleCreateView)
 	router.GET("articles", app.ArticleListView)
+	router.GET("categorys", app.ArticleCategoryListView)
 	router.GET("articles/detail", app.ArticleDetailByTitleView)
 	router.GET("articles/calendar", app.ArticleCalendarView)
 	router.GET("articles/tags", app.ArticleTagListView)
@@ -18,5 +19,6 @@ func (router RouterGroup) ArticleRouter() {
 	router.GET("articles/collects", middleware.JwtAuth(), app.ArticleCollListView)
 	router.DELETE("articles/collects", middleware.JwtAuth(), app.ArticleCollBatchRemoveView)
 	router.GET("articles/text", app.FullTextSearchView) //全文搜索
+	router.GET("articles/content/:id", app.ArticleContentByIDView)
 	router.GET("articles/:id", app.ArticleDetailView)
 }

@@ -23,6 +23,15 @@ type Message struct {
 
 type MessageGroup map[uint]*Message
 
+// MessageListView 用户与他人的消息列表
+// @Tags 消息管理
+// @Summary 用户与他人的消息列表
+// @Description 用户与他人的消息列表
+// @Router /api/messages [get]
+// @Param token header string true "token"
+// @Param data query models.PageInfo    false  "查询参数"
+// @Produce json
+// @Success 200 {object} res.Response{data=[]Message}
 func (MessageApi) MessageListView(c *gin.Context) {
 	_claims, _ := c.Get("claims")
 	claims := _claims.(*jwts.CustomClaims)

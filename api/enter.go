@@ -3,7 +3,7 @@ package api
 import (
 	"gvb_server/api/advert_api"
 	"gvb_server/api/article_api"
-	"gvb_server/api/caht_api"
+	"gvb_server/api/chat_api"
 	"gvb_server/api/comment_api"
 	"gvb_server/api/data_api"
 	"gvb_server/api/digg_api"
@@ -29,7 +29,7 @@ type ApiGroup struct {
 	DiggApi     digg_api.DiggApi
 	CommentApi  comment_api.CommentApi
 	NewsApi     new_api.NewApi
-	ChatApi     caht_api.ChatApi
+	ChatApi     chat_api.ChatApi
 	LogApi      log_api.LogApi
 	DataApi     data_api.DataApi
 }

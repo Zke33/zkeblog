@@ -18,6 +18,14 @@ type EmailLoginRequest struct {
 	Password string `json:"password" binding:"required" msg:"请输入密码"`
 }
 
+// EmailLoginView 邮箱登录，返回token，用户信息需要从token中解码
+// @Tags 用户管理
+// @Summary 邮箱登录
+// @Description 邮箱登录，返回token，用户信息需要从token中解码
+// @Param data body EmailLoginRequest    true  "查询参数"
+// @Router /api/email_login [post]
+// @Produce json
+// @Success 200 {object} res.Response{}
 func (UserApi) EmailLoginView(c *gin.Context) {
 	var cr EmailLoginRequest
 	err := c.ShouldBindJSON(&cr)
@@ -50,6 +58,7 @@ func (UserApi) EmailLoginView(c *gin.Context) {
 		NickName: userModel.NickName,
 		Role:     int(userModel.Role),
 		UserID:   userModel.ID,
+		Avatar:   userModel.Avatar,
 	})
 	if err != nil {
 		global.Log.Error(err)

@@ -5,6 +5,7 @@ import (
 	"gvb_server/global"
 	"gvb_server/models/ctype"
 	"gvb_server/models/res"
+	"gvb_server/service/redis_ser"
 	"gvb_server/utils"
 	"gvb_server/utils/jwts"
 )
@@ -24,8 +25,7 @@ func JwtAuth() gin.HandlerFunc {
 			return
 		}
 		//判断是否在redis中
-		keys := global.Redis.Keys("logout_*").Val()
-		if utils.InList("logout_"+token, keys) {
+		if redis_ser.CheckLogout(token) {
 			res.FailWithMessage("token已失效", c)
 			c.Abort()
 			return

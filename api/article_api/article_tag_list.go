@@ -52,9 +52,9 @@ func (ArticleApi) ArticleTagListView(c *gin.Context) {
 		Aggregation("tags", elastic.NewValueCountAggregation().Field("tags")).
 		Size(0).
 		Do(context.Background())
+
 	cTag, _ := result.Aggregations.Cardinality("tags")
 	count := int64(*cTag.Value)
-
 	agg := elastic.NewTermsAggregation().Field("tags")
 
 	agg.SubAggregation("articles", elastic.NewTermsAggregation().Field("keyword"))
