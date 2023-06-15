@@ -1,10 +1,10 @@
 mysql:
-  host: 121.43.183.35
+  host: 
   port: 3306
   config: charset=utf8mb4&parseTime=True&loc=Local
-  db: gvb_db
-  user: zke
-  password: 131421zka
+  db: 
+  user: 
+  password: 
   log_level: release
 logger:
   level: INFO
@@ -20,40 +20,25 @@ upload:
   size: 2
   path: uploads/file
 site_info:
-  created_at: "2023-05-07"
-  bei_an: 暂无
-  title: zke
-  qq_image: http://verification.zkea.top/gvb/qq.png
-  version: v1
-  email: 1433861798@qq.com
-  wechat_image: http://verification.zkea.top/gvb/wechat.png
-  name: zke
-  job: student
-  addr: 河南新乡
-  slogan: zkeBlog
-  slogan_en: zkeBlog
-  web: 暂无
-  bilibili_url: 暂无
-  gitee_url: 暂无
-  github_url: 暂无
+
 qq:
   app_id: xxxx
   key: xx
   redirect: http://xx.xx.com/login?flag=qq
 qi_niu:
   enable: false
-  access_key: BlyIw4ioaGFNplvDRJqo5UutjkEbuiQkPwVXk7FM
-  secret_key: ZLWWQ8MErRjBSb3EsPEao38jBIFHoeaM_VviYCKL
-  bucket: fileforzke
-  cdn: http://verification.zkea.top/
+  access_key: 
+  secret_key: 
+  bucket: 
+  cdn: 
   zone: na0
   prefix: gvb
   size: 5
 email:
   host: smtp.qq.com
   port: 465
-  user: 1433861798@qq.com
-  password: tvgttttfgjrdfiih
+  user: 
+  password: 
   default_from_email: ZkeBlog
   use_ssl: true
   user_tls: false
@@ -62,12 +47,12 @@ jwt:
   expires: 20
   issuer: "1234"
 redis:
-  ip: 121.43.183.35
-  port: 6379
-  password: 131421zka
-  pool_size: 100
+  ip: 
+  port: 
+  password: 
+  pool_size: 
 es:
-  host: http://121.43.183.35
-  port: 9200
+  host: 
+  port: 
   user: ""
   password: ""
