@@ -55,13 +55,9 @@ func (ArticleApi) ArticleListView(c *gin.Context) {
 		return
 	}
 
-	// json-filter空值问题
-	data := filter.Omit("list", list)
-	_list, _ := data.(filter.Filter)
-	if string(_list.MustMarshalJSON()) == "{}" {
-		list = make([]models.ArticleModel, 0)
-		res.OkWithList(list, int64(count), c)
-		return
+	if list == nil { //先判断切片是否为空，为空的切片不需要过滤
+		res.OkWithList(make([]struct{}, 0), int64(count), c)
+	} else {
+		res.OkWithList(filter.Omit("list", list), int64(count), c)
 	}
-	res.OkWithList(data, int64(count), c)
 }

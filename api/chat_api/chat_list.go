@@ -27,12 +27,10 @@ func (ChatApi) ChatListView(c *gin.Context) {
 	list, count, _ := common.ComList(models.ChatModel{IsGroup: true}, common.Option{
 		PageInfo: cr,
 	})
-	data := filter.Omit("list", list)
-	_list, _ := data.(filter.Filter)
-	if string(_list.MustMarshalJSON()) == "{}" {
-		list = make([]models.ChatModel, 0)
-		res.OkWithList(list, count, c)
-		return
+
+	if list == nil { //先判断切片是否为空，为空的切片不需要过滤
+		res.OkWithList(make([]struct{}, 0), int64(count), c)
+	} else {
+		res.OkWithList(filter.Omit("list", list), int64(count), c)
 	}
-	res.OkWithList(data, count, c)
 }
